@@ -1,5 +1,3 @@
-// script.js
-
 // Function to handle sign-in
 function handleSignIn(event) {
     event.preventDefault(); // Prevent form submission
@@ -26,7 +24,10 @@ function loadMedicines() {
     const medicines = [
         { name: 'Medicine A', description: 'Description for Medicine A' },
         { name: 'Medicine B', description: 'Description for Medicine B' },
-        { name: 'Medicine C', description: 'Description for Medicine C' }
+        { name: 'Medicine C', description: 'Description for Medicine C' },
+        { name: 'Medicine D', description: 'Description for Medicine D' },
+        { name: 'Medicine E', description: 'Description for Medicine E' },
+        { name: 'Medicine F', description: 'Description for Medicine F' }
     ];
 
     medicines.forEach(medicine => {

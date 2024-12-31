@@ -12,24 +12,56 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#medicines">Medicines</a></li>
-                <li><a href="#features">Features</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#signin">Sign In</a></li>
             </ul>
         </nav>
     </header>
 
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Your Health, Our Priority</h2>
+            <p>Providing high-quality, affordable generic medicines worldwide.</p>
+            <a href="#medicines" class="cta-button">Explore Our Medicines</a>
+        </div>
+    </section>
+
     <main>
-        <section id="home">
-            <h2>Welcome to Affordable Healthcare</h2>
-            <p>Providing high-quality, affordable generic medicines at your fingertips.</p>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a multinational company dedicated to providing affordable healthcare solutions. Our mission is to ensure that everyone has access to high-quality medicines at reasonable prices.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Global Distribution of Medicines</li>
+                <li>Online Consultation Services</li>
+                <li>Subscription-Based Medicine Delivery</li>
+                <li>Health Education and Resources</li>
+                <li>24/7 Customer Support</li>
+            </ul>
         </section>
 
         <section id="medicines">
             <h2>Our Medicines</h2>
             <div id="medicine-list">
                 <!-- Medicine details will populate here dynamically -->
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"The service is excellent, and the medicines are always delivered on time!"</p>
+                <cite>- John Doe</cite>
+            </div>
+            <div class="testimonial">
+                <p>"I appreciate the affordability and quality of the medicines provided."</p>
+                <cite>- Jane Smith</cite>
             </div>
         </section>
 
@@ -60,28 +92,15 @@
 
     <footer>
         <p>&copy; 2024 Generic Medicine Distribution</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
         function handleSignIn(event) {
             event.preventDefault(); // Prevent form submission
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const role = document.getElementById('role').value;
-
-            // Simple authentication logic (for demonstration purposes)
-            if (role === 'admin') {
-                // Redirect to admin page
-                window.location.href = 'admin.html'; // Replace with your actual admin page
-            } else if (role === 'client') {
-                // Redirect to client page
-                window.location.href = 'client.html'; // Replace with your actual client page
-            } else {
-                alert('Please select a valid role.');
-            }
-        }
-    </script>
-</body>
-</html>
