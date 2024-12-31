@@ -1,25 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
+// script.js
+
+// Function to handle sign-in
+function handleSignIn(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const role = document.getElementById('role').value;
+
+    // Simple authentication logic (for demonstration purposes)
+    if (role === 'admin') {
+        // Redirect to admin page
+        window.location.href = 'admin.html'; // Replace with your actual admin page
+    } else if (role === 'client') {
+        // Redirect to client page
+        window.location.href = 'client.html'; // Replace with your actual client page
+    } else {
+        alert('Please select a valid role.');
+    }
+}
+
+// Function to load medicines dynamically (example)
+function loadMedicines() {
     const medicineList = document.getElementById('medicine-list');
     const medicines = [
-        { name: 'Paracetamol', category: 'Pain Relief', price: '$5' },
-        { name: 'Amoxicillin', category: 'Antibiotic', price: '$10' },
-        { name: 'Metformin', category: 'Diabetes', price: '$15' },
+        { name: 'Medicine A', description: 'Description for Medicine A' },
+        { name: 'Medicine B', description: 'Description for Medicine B' },
+        { name: 'Medicine C', description: 'Description for Medicine C' }
     ];
 
     medicines.forEach(medicine => {
-        const medicineDiv = document.createElement('div');
-        medicineDiv.innerHTML = `
-            <h3>${medicine.name}</h3>
-            <p>Category: ${medicine.category}</p>
-            <p>Price: ${medicine.price}</p>
-        `;
-        medicineList.appendChild(medicineDiv);
+        const medicineItem = document.createElement('div');
+        medicineItem.innerHTML = `<h3>${medicine.name}</h3><p>${medicine.description}</p>`;
+        medicineList.appendChild(medicineItem);
     });
+}
 
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
-});
+// Call loadMedicines on page load
+document.addEventListener('DOMContentLoaded', loadMedicines);

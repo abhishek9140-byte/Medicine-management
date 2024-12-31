@@ -15,6 +15,7 @@
                 <li><a href="#medicines">Medicines</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#signin">Sign In</a></li>
             </ul>
         </nav>
     </header>
@@ -52,6 +53,20 @@
                 <button type="submit">Send</button>
             </form>
         </section>
+
+        <section id="signin">
+            <h2>Sign In</h2>
+            <form id="signin-form" onsubmit="return handleSignIn(event)">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="role" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="client">Client</option>
+                </select>
+                <button type="submit">Sign In</button>
+            </form>
+        </section>
     </main>
 
     <footer>
@@ -59,5 +74,25 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function handleSignIn(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            // Simple authentication logic (for demonstration purposes)
+            if (role === 'admin') {
+                // Redirect to admin page
+                window.location.href = 'admin.html'; // Replace with your actual admin page
+            } else if (role === 'client') {
+                // Redirect to client page
+                window.location.href = 'client.html'; // Replace with your actual client page
+            } else {
+                alert('Please select a valid role.');
+            }
+        }
+    </script>
 </body>
 </html>
