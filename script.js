@@ -1,21 +1,46 @@
+
+
 // Function to handle sign-in
 function handleSignIn(event) {
     event.preventDefault(); // Prevent form submission
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const role = document.getElementById('role').value;
+    const username = document.getElementById('signin-username').value;
+    const password = document.getElementById('signin-password').value;
+    const role = document.getElementById('signin-role').value;
 
     // Simple authentication logic (for demonstration purposes)
-    if (role === 'admin') {
+    if (role === 'admin' && username === 'admin' && password === '123') {
         // Redirect to admin page
         window.location.href = 'admin.html'; // Replace with your actual admin page
-    } else if (role === 'client') {
+    } else if (role === 'client' && username === 'client' && password === '123') {
         // Redirect to client page
         window.location.href = 'client.html'; // Replace with your actual client page
     } else {
-        alert('Please select a valid role.');
+        alert('Invalid credentials. Please try again.');
     }
+}
+
+// Function to handle sign-up
+function handleSignUp(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const role = document.getElementById('signup-role').value;
+    const username = document.getElementById('signup-username').value;
+    const email = document.getElementById('signup-email').value;
+    const dob = document.getElementById('signup-dob').value;
+    const password = document.getElementById('signup-password').value;
+
+    // Basic validation (you can expand this as needed)
+    if (!role || !username || !email || !dob || !password) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // For demonstration, just log the sign-up data
+    console.log(`Sign Up: ${role}, ${username}, ${email}, ${dob}, ${password}`);
+    
+    // Here you would typically send the data to your server
+    alert('Sign up successful! You can now sign in.');
 }
 
 // Function to load medicines dynamically (example)
