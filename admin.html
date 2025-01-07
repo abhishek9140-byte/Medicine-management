@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Medicines</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="admin.html">Home</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="add-medicine">
+            <h2>Add Medicine</h2>
+            <form id="add-medicine-form">
+                <input type="text" id="medicine-name" placeholder="Medicine Name" required>
+                <input type="number" id="medicine-quantity" placeholder="Quantity" required>
+                <select id="medicine-status" required>
+                    <option value="In Stock">In Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                <button type="submit">Add Medicine</button>
+            </form>
+        </section>
+
+        <section id="medicine-list">
+            <h2>Medicine List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="medicine-table-body">
+                    <!-- Medicines will be dynamically populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Generic Medicine Distribution. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

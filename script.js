@@ -1,66 +1,36 @@
 
+// script.js
 
-// Function to handle sign-in
+// Function to handle the sign-in logic
 function handleSignIn(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
-    const username = document.getElementById('signin-username').value;
-    const password = document.getElementById('signin-password').value;
-    const role = document.getElementById('signin-role').value;
+    // Get the form elements
+    const role = document.querySelector('select[name="role"]').value;
+    const username = document.querySelector('input[name="username"]').value;
+    const password = document.querySelector('input[name="password"]').value;
 
-    // Simple authentication logic (for demonstration purposes)
-    if (role === 'admin' && username === 'admin' && password === '123') {
-        // Redirect to admin page
-        window.location.href = 'admin.html'; // Replace with your actual admin page
-    } else if (role === 'client' && username === 'client' && password === '123') {
-        // Redirect to client page
-        window.location.href = 'client.html'; // Replace with your actual client page
-    } else {
-        alert('Invalid credentials. Please try again.');
+    // Hardcoded credentials
+    const adminCredentials = { username: "admin", password: "123" };
+    const userCredentials = { username: "user", password: "123" };
+
+    // Check if the input matches admin credentials
+    if (role === "admin" && username === adminCredentials.username && password === adminCredentials.password) {
+        window.location.href = "admin.html"; // Redirect to admin page
+    }
+    // Check if the input matches user credentials
+    else if (role === "client" && username === userCredentials.username && password === userCredentials.password) {
+        window.location.href = "user.html"; // Redirect to user page
+    }
+    else {
+        alert("Invalid credentials. Please try again.");
     }
 }
 
-// Function to handle sign-up
-function handleSignUp(event) {
-    event.preventDefault(); // Prevent form submission
-
-    const role = document.getElementById('signup-role').value;
-    const username = document.getElementById('signup-username').value;
-    const email = document.getElementById('signup-email').value;
-    const dob = document.getElementById('signup-dob').value;
-    const password = document.getElementById('signup-password').value;
-
-    // Basic validation (you can expand this as needed)
-    if (!role || !username || !email || !dob || !password) {
-        alert('Please fill in all fields.');
-        return;
+// Add event listener to handle form submission
+document.addEventListener('DOMContentLoaded', function () {
+    const signinForm = document.getElementById('signin-form');
+    if (signinForm) {
+        signinForm.addEventListener('submit', handleSignIn);
     }
-
-    // For demonstration, just log the sign-up data
-    console.log(`Sign Up: ${role}, ${username}, ${email}, ${dob}, ${password}`);
-    
-    // Here you would typically send the data to your server
-    alert('Sign up successful! You can now sign in.');
-}
-
-// Function to load medicines dynamically (example)
-function loadMedicines() {
-    const medicineList = document.getElementById('medicine-list');
-    const medicines = [
-        { name: 'Medicine A', description: 'Description for Medicine A' },
-        { name: 'Medicine B', description: 'Description for Medicine B' },
-        { name: 'Medicine C', description: 'Description for Medicine C' },
-        { name: 'Medicine D', description: 'Description for Medicine D' },
-        { name: 'Medicine E', description: 'Description for Medicine E' },
-        { name: 'Medicine F', description: 'Description for Medicine F' }
-    ];
-
-    medicines.forEach(medicine => {
-        const medicineItem = document.createElement('div');
-        medicineItem.innerHTML = `<h3>${medicine.name}</h3><p>${medicine.description}</p>`;
-        medicineList.appendChild(medicineItem);
-    });
-}
-
-// Call loadMedicines on page load
-document.addEventListener('DOMContentLoaded', loadMedicines);
+});
